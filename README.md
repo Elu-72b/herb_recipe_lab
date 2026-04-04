@@ -201,7 +201,7 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 ## 本リリースで作る機能
 
 - 5段階評価 ＆ 7要素の風味チャート
-  「甘味・酸味・清涼感・華やかさ・草土・スパイシー・コク苦味」の7指標で味を客観的に可視化。
+  「甘味・渋味・清涼感・香ばしさ・スパイシー・清涼感・フルーティー・酸味」の7つの指標で味を客観的に可視化。
   自己分析や「好みの近いユーザー」とのマッチングの基礎データとなります。
 - ハーブ辞典（Turbo Stream実装）
   レシピ入力画面を離れることなく、非同期でハーブの画像・風味・効能・禁忌を確認できる機能。
@@ -292,3 +292,10 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 - アプリ使用方法の解説
 - ブレンドレシピ検索のためのデータ構造や検索設計
 - 味の好み、求める効果をわかりやすく表示するチャート設計
+
+# 画面遷移図
+[Herb Recipe Lab\_画面遷移図](https://www.figma.com/design/E3mrzaweJAsVvJkzc73dIC/Herb-Recipe-Lab_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&p=f&t=VGqqywNLFX1MHnwZ-0)
+
+# ER図
+
+[![ER図](https://i.gyazo.com/d9aec3f6a171f86958e85d104116766c.png)](https://gyazo.com/d9aec3f6a171f86958e85d104116766c)
