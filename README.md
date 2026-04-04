@@ -295,3 +295,7 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 
 #　画面遷移図
 [Herb Recipe Lab\_画面遷移図](https://www.figma.com/design/E3mrzaweJAsVvJkzc73dIC/Herb-Recipe-Lab_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&p=f&t=VGqqywNLFX1MHnwZ-0)
+
+# ER図
+
+[![ER図](https://i.gyazo.com/d9aec3f6a171f86958e85d104116766c.png)](https://gyazo.com/d9aec3f6a171f86958e85d104116766c)
