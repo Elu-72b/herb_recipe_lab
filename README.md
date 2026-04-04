@@ -293,7 +293,7 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 - ブレンドレシピ検索のためのデータ構造や検索設計
 - 味の好み、求める効果をわかりやすく表示するチャート設計
 
-#　画面遷移図
+# 画面遷移図
 [Herb Recipe Lab\_画面遷移図](https://www.figma.com/design/E3mrzaweJAsVvJkzc73dIC/Herb-Recipe-Lab_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&p=f&t=VGqqywNLFX1MHnwZ-0)
 
 # ER図
