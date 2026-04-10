@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:17
+    platform: linux/x86_64 # Apple Silicon(M1/M2)対策。もしIntel Macなら削除可
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data # 「/data」まで含めるのが正解
+    ports:
+      - 5432:5432
+    healthcheck:
+      # 対象DBを postgres に変更。これで「DB自体が動いているか」を正しく判定できます
+      test: ["CMD-SHELL", "pg_isready -d postgres -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # 初回は db:prepare ではなく、確実なコマンドで起動させます
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/myapp
+      - bundle_data:/usr/local/bundle:cached
+      - node_modules:/myapp/node_modules
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_PASSWORD: password # RailsがDB接続する際に必要
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  bundle_data:
+  postgresql_data:
+  node_modules:
