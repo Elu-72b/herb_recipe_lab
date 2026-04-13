@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root 'static_pages#top'
+  get 'signup', to: 'static_pages#signup' # 新規登録画面
+  get 'home', to: 'static_pages#home'     # ホーム画面
 end
