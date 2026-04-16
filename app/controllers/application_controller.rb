@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+  protected
 
   def configure_permitted_parameters
     # サインアップ時に name カラムの保存を許可する
@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
+    home_path
+  end
+
+  def after_sign_in_path_for(resource)
     home_path
   end
 end
