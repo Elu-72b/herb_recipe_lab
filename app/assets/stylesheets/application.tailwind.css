@@ -90,7 +90,7 @@
   .nav-item {
     @apply flex flex-col items-center space-y-1 text-[10px] transition-opacity;
   }
-  
+
   .nav-icon {
     @apply h-7 w-7 mb-1; /* アイコンを少し小さく、文字との間隔を調整 */
   }
@@ -185,9 +185,8 @@
   .nav-item {
     @apply flex flex-col items-center space-y-1 text-[10px] transition-opacity;
   }
-  
+
   .nav-icon {
     @apply h-7 w-7 mb-1; /* アイコンを少し小さく、文字との間隔を調整 */
   }
 }
-
