@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  get "herbs/index"
+  get "herbs/show"
+  get "herbs/new"
+  get "herbs/create"
+  get "herbs/edit"
+  get "herbs/update"
+  get "herbs/destroy"
   devise_for :users
 
   # 1. ルートパス（/）の設定
   # 未ログインなら static_pages#top（ログインフォーム付き）を表示し、
   # ログイン済みなら Controller 側で home へリダイレクトさせます。
   root 'static_pages#top'
+
+  resources :herbs
 
   # 2. 新規登録画面のURLをシンプルにする（任意）
   # /users/sign_up ではなく /signup でアクセスしたい場合に残します。
