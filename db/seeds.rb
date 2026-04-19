@@ -1,9 +1,36 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# 風味タグ
+flavor_names = %w[甘味 酸味 苦味 渋味 フルーティー スパイシー 清涼感 香ばしさ]
+flavor_names.each { |name| FlavorTag.find_or_create_by!(name: name) }
+
+# 効能タグ
+functional_names = [
+  "リラックス（鎮静）", "睡眠サポート", "ストレス緩和", "集中力向上",
+  "消化促進", "胃腸ケア", "食欲調整", "デトックス",
+  "抗炎症", "抗酸化", "免疫サポート", "血行促進",
+  "ホルモンバランス", "美肌ケア"
+]
+functional_names.each { |name| FunctionalTag.find_or_create_by!(name: name) }
+
+caution_names = [
+  "妊娠中注意", "授乳中注意", "小児使用注意",
+  "高血圧注意", "低血圧注意", "糖尿病注意",
+  "アレルギー注意", "肝機能低下時注意", "腎機能低下時注意",
+  "ホルモン感受性注意", "鎮静作用あり", "光感作注意"
+]
+caution_names.each { |name| CautionTag.find_or_create_by!(name: name) }
+
+herbs_data.each do |data|
+  herb = Herb.find_or_create_by!(name: data[:name]) do |h|
+    h.alias_name          = data[:alias_name]
+    h.active_ingredients  = data[:active_ingredients]
+    h.flavor_description  = data[:flavor_description]
+    h.effect_description  = data[:effect_description]
+    h.caution_description = data[:caution_description]
+    h.history             = data[:history]
+  end
+
+  # タグを紐付ける
+  herb.flavor_tags     = FlavorTag.where(name: data[:flavor_tags])
+  herb.functional_tags = FunctionalTag.where(name: data[:functional_tags])
+  herb.caution_tags    = CautionTag.where(name: data[:caution_tags])
+end

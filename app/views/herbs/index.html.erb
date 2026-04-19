@@ -18,10 +18,10 @@
     <% else %>
       <div class="space-y-6 mt-2 pt-2">
         <% @herbs.each do |herb| %>
-          <%= link_to herb_path(herb), class: "flex herb-card block hover:opacity-80 transition" do %>
+          <%= link_to herb_path(herb), class: "herb-card hover:opacity-80 transition" do %>
 
-            <%# 画像（小さく左寄り） %>
-            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+            <%# 画像（小さく・左寄り） %>
+            <div class="w-12 h-12 rounded-lg overflow-hidden bg-herb-green-100 flex-shrink-0">
               <% if herb.image.attached? %>
                 <%= image_tag herb.image, class: "w-full h-full object-cover" %>
               <% else %>
@@ -32,14 +32,40 @@
             </div>
 
             <%# テキスト情報（右側） %>
-            <div class="p-5 w-56 shrink-0">
+            <div class="flex-1 min-w-0">
+              <p class="text-herb-green-700 font-medium"><%= herb.name %></p>
 
-              <%# 名称 %>
-              <p class="text-herb-green-700 text-lg sm:text-xl font-serif font-medium tracking-wide mb-1 transition">
-                <%= herb.name %>
-              </p>
+              <%# 風味タグ %>
+              <% if herb.flavor_tags.any? %>
+                <div class="flex flex-wrap gap-1 mt-1">
+                  <% herb.flavor_tags.each do |tag| %>
+                    <span class="w-full h-full tag-herb"><%= tag.name %></span>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <%# 効能タグ %>
+              <% if herb.functional_tags.any? %>
+                <div class="flex flex-wrap gap-1 mt-1">
+                  <% herb.functional_tags.each do |tag| %>
+                    <span class="w-full h-full tag-benefit"><%= tag.name %></span>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <%# 禁忌タグ %>
+              <% if herb.caution_tags.any? %>
+                <div class="flex flex-wrap gap-1">
+                  <% herb.caution_tags.each do |tag| %>
+                    <span class="w-full h-full bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
+                      ⚠ <%= tag.name %>
+                    </span>
+                  <% end %>
+                </div>
+              <% end %>
+
             </div>
-          <% end %>  <%# link_to の end %>
+          <% end %>   <%# link_to の end %>
         <% end %>   <%# each の end %>
       </div>
     <% end %>       <%# if の end %>
