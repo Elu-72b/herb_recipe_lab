@@ -1,0 +1,2 @@
+class CautionTag < ApplicationRecord
+end
