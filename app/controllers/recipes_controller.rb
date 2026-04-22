@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      redirect_to home_path, notice: "ブレンド研究記録を作成しました！"
+      redirect_to new_recipe_drinking_log_path(@recipe), notice: "ブレンドを記録しました！続いて感想を入力しましょう。"
     else
       # バリデーション失敗時はフォームを再表示
       @recipe.recipe_herbs.build if @recipe.recipe_herbs.empty?
