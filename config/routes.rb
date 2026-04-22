@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root 'static_pages#top'
 
   resources :herbs, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :recipes, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :recipes do
+    resources :drinking_logs, only: [:new, :create, :show, :edit, :update]
+  end
   # 2. 新規登録画面のURLをシンプルにする（任意）
   # /users/sign_up ではなく /signup でアクセスしたい場合に残します。
   devise_scope :user do
