@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_04_21_172218) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_22_144737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,13 +55,13 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_21_172218) do
     t.integer "bitterness"
     t.integer "astringency"
     t.integer "freshness"
-    t.integer "savory"
     t.integer "spicy"
     t.integer "fruity"
     t.integer "acidity"
     t.text "impression"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "flowery", default: 0
     t.index ["recipe_id"], name: "index_drinking_logs_on_recipe_id"
   end
 

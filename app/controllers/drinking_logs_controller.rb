@@ -4,6 +4,7 @@ class DrinkingLogsController < ApplicationController
 
   def new
     @drinking_log = @recipe.build_drinking_log
+    @flavor_tags = FlavorTag.all
   end
 
   def create
@@ -11,6 +12,7 @@ class DrinkingLogsController < ApplicationController
     if @drinking_log.save
       redirect_to home_path, notice: "研究記録を完了しました！"
     else
+      @flavor_tags = FlavorTag.all
       render :new, status: :unprocessable_entity
     end
   end
@@ -21,6 +23,7 @@ class DrinkingLogsController < ApplicationController
 
   def edit
     @drinking_log = @recipe.drinking_log
+    @flavor_tags = FlavorTag.all
   end
 
   def update
@@ -28,6 +31,7 @@ class DrinkingLogsController < ApplicationController
     if @drinking_log.update(drinking_log_params)
       redirect_to home_path, notice: "感想を更新しました"
     else
+      @flavor_tags = FlavorTag.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -41,7 +45,7 @@ class DrinkingLogsController < ApplicationController
   def drinking_log_params
     params.require(:drinking_log).permit(
       :rating, :sweetness, :bitterness, :astringency, :freshness,
-      :savory, :spicy, :fruity, :acidity, :impression
+      :spicy, :fruity, :acidity, :flowery, :impression
     )
   end
 end

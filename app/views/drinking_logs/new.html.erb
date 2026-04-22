@@ -35,13 +35,18 @@
         </div>
       </div>
 
-      <%# 味のパラメータ（簡易版：代表的な3つだけ例示） %>
+      <%# 味のパラメータ（DBのタグから動的に生成） %>
       <div class="grid grid-cols-2 gap-4">
-        <% [[:sweetness, "甘味"], [:bitterness, "苦味"], [:acidity, "酸味"], [:freshness, "清涼感"]].each do |field, label| %>
-          <div>
-            <%= f.label field, label, class: "block text-xs font-medium text-herb-green-600 mb-1" %>
-            <%= f.select field, (0..5).to_a, {}, class: "w-full border border-herb-green-200 rounded-lg px-3 py-2 text-sm focus:ring-herb-green-400" %>
-          </div>
+        <% @flavor_tags.each do |tag| %>
+          <%# マッピングから対応するカラム名を取得 %>
+          <% column_name = DrinkingLog::FLAVOR_MAPPING[tag.name] %>
+          <% if column_name %>
+            <div>
+              <%= f.label column_name, tag.name, class: "block text-xs font-medium text-herb-green-600 mb-1" %>
+              <%= f.select column_name, (0..5).to_a, {}, 
+                    class: "w-full border border-herb-green-200 rounded-lg px-3 py-2 text-sm focus:ring-herb-green-400" %>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
