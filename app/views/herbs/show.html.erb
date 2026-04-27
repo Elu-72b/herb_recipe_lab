@@ -23,83 +23,53 @@
     <div class="flex flex-col gap-4 w-full">
       <%# 風味タグ %>
       <% if @herb.flavor_tags.any? %>
-        <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-          <p class="text-xs text-herb-green-700/50 mb-2">風味</p>
-          <div class="flex flex-wrap gap-1">
-            <% @herb.flavor_tags.each do |tag| %>
-              <span class="w-full h-full tag-herb"><%= tag.name %></span>
-            <% end %>
-          </div>
+        <p class="text-xs text-herb-green-700/50 mb-2">風味</p>
+        <div class="flex flex-wrap gap-1">
+          <% @herb.flavor_tags.each do |tag| %>
+            <span class="flex flex-wrap gap-1 tag-herb"><%= tag.name %></span>
+          <% end %>
         </div>
       <% end %>
 
       <%# 効能タグ %>
       <% if @herb.functional_tags.any? %>
-        <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-          <p class="text-xs text-herb-green-700/50 mb-2">効能</p>
-          <div class="flex flex-wrap gap-1">
-            <% @herb.functional_tags.each do |tag| %>
-              <span class="w-full h-full tag-benefit"><%= tag.name %></span>
-            <% end %>
-          </div>
+        <p class="text-xs text-herb-green-700/50 mb-2">効能</p>
+        <div class="flex flex-wrap gap-1">
+          <% @herb.functional_tags.each do |tag| %>
+            <span class="flex flex-wrap gap-1 tag-benefit"><%= tag.name %></span>
+          <% end %>
         </div>
       <% end %>
 
       <%# 禁忌タグ %>
       <% if @herb.caution_tags.any? %>
-        <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-          <p class="text-xs text-herb-green-700/50 mb-2">禁忌</p>
-          <div class="flex flex-wrap gap-1">
-            <% @herb.caution_tags.each do |tag| %>
-              <span class="w-full h-full bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
-                ⚠ <%= tag.name %>
-              </span>
-            <% end %>
-          </div>
+        <p class="text-xs text-herb-green-700/50 mb-2">禁忌</p>
+        <div class="flex flex-wrap gap-1">
+          <% @herb.caution_tags.each do |tag| %>
+            <span class="flex flex-wrap gap-1 bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
+              ⚠ <%= tag.name %>
+            </span>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 
-    <%# 有効成分 %>
-    <% if @herb.active_ingredients.present? %>
-      <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-        <p class="text-xs text-herb-green-700/50 mb-2">有効成分</p>
-        <p class="text-sm text-herb-green-700"><%= @herb.active_ingredients %></p>
-      </div>
-    <% end %>
-
-    <%# 風味の特徴 %>
-    <% if @herb.flavor_description.present? %>
-      <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-        <p class="text-xs text-herb-green-700/50 mb-2">風味の特徴</p>
-        <p class="text-sm text-herb-green-700 leading-relaxed"><%= @herb.flavor_description %></p>
-      </div>
-    <% end %>
-
-    <%# 効能の説明 %>
-    <% if @herb.effect_description.present? %>
-      <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-        <p class="text-xs text-herb-green-700/50 mb-2">効能の説明</p>
-        <p class="text-sm text-herb-green-700 leading-relaxed"><%= @herb.effect_description %></p>
-      </div>
-    <% end %>
-
-    <%# 禁忌の説明 %>
-    <% if @herb.caution_description.present? %>
-      <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-        <p class="text-xs text-herb-green-700/50 mb-2">禁忌の説明</p>
-        <p class="text-sm text-herb-green-700 leading-relaxed"><%= @herb.caution_description %></p>
-      </div>
-    <% end %>
-
-    <%# 歴史 %>
-    <% if @herb.history.present? %>
-      <div class="bg-white rounded-2xl p-4 border border-herb-green-100">
-        <p class="text-xs text-herb-green-700/50 mb-2">歴史</p>
-        <p class="text-sm text-herb-green-700 leading-relaxed"><%= @herb.history %></p>
-      </div>
-    <% end %>
+  <%# 説明 %>
+  <% if @herb.description.present? %>
+    <div class="bg-herb-green-50/50 rounded-2xl p-4 border border-herb-green-100">
+      <p class="text-xs text-herb-green-700/50 mb-2">説明</p>
+      <p class="text-sm text-herb-green-700/80 leading-relaxed mb-4"><%= @herb.description %></p>
+    </div>
+  <% end %>
+  <br>
+  <%# 禁忌・注意事項 %>
+  <% if @herb.caution.present? %>
+    <div class="bg-red-50 rounded-2xl p-4 border border-red-100">
+      <p class="text-xs text-red-500 mb-2">⚠ 禁忌・注意事項</p>
+      <p class="text-sm text-red-700 leading-relaxed"><%= @herb.caution %></p>
+    </div>
+  <% end %>
 
   <br>
   <%= link_to "一覧に戻る", herbs_path,
