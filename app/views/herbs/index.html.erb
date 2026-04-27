@@ -1,6 +1,6 @@
-<div class="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4 space-y-3 w-full">
+<div class="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-3 space-y-3 w-full">
 
-  <div class="max-w-sm bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-10">
+  <div class="max-w-lm bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-5">
     <div class="bg-herb-green-100 px-8 py-2 rounded-full shadow-sm border border-herb-green-600/20">
       <h2 class="flex justify-center text-2xl md:text-2xl text-herb-green-700 font-medium tracking-wide">
         ハーブ図鑑
@@ -20,7 +20,7 @@
           <%= link_to herb_path(herb), class: "herb-card hover:opacity-80 transition" do %>
 
             <%# 画像（小さく・左寄り） %>
-            <div class="w-12 h-12 rounded-lg overflow-hidden bg-herb-green-100 flex-shrink-0">
+            <div class="w-12 h-12 rounded-lg overflow-hidden bg-herb-green-50 flex-shrink-0">
               <% if herb.image.attached? %>
                 <%= image_tag herb.image, class: "w-full h-full object-cover" %>
               <% else %>
@@ -71,7 +71,7 @@
 
     <div class="flex justify-end space-y-3 mt-6 pt-2">
       <%= link_to "＋ 新規登録", new_herb_path,
-          class: "text-sm bg-herb-green-600 text-white px-4 py-2 rounded-xl" %>
+          class: "w-full py-4 bg-herb-green-600/80 text-white text-lg font-medium rounded-xl hover:bg-herb-green-700/80 transition-colors shadow-sm active:scale-[0.99] flex items-center justify-center" %>
     </div>
   </div>
 

@@ -1,48 +1,45 @@
-<%# 画面全体を中央寄せにするコンテナ %>
-<div class="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-4 space-y-3 w-full">
-  <%# ヘッダーエリア (タイトルを表示) %>
+<div class="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-3 space-y-3 w-full">
 
-<div class="max-w-sm bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-10">
+  <div class="max-w-lm bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-5">
     <div class="bg-herb-green-100 px-8 py-2 rounded-full shadow-sm border border-herb-green-600/20">
-      <h2 class="display: justify-content: center flex text-2xl md:text-2xl text-herb-green-700 font-medium tracking-wide ">
+      <h2 class="flex justify-center text-2xl text-herb-green-700 font-medium tracking-wide">
         ブレンド研究一覧
       </h2>
     </div>
     <br>
-    <div class="w-full flex-grow flex flex-col items-center justify-center border-2 border-dashed border-herb-green-50 rounded-2xl py-6 mb-6 bg-herb-green-50/30">
-        <% if @recipes.any? %>
-          <div class="w-full space-y-4 px-4">
-            <% @recipes.each do |recipe| %>
-              <%= link_to recipe_path(recipe), class: "block" do %>
-                <div class="bg-white rounded-xl shadow-sm p-4 border border-herb-green-100 hover:border-herb-green-300 transition-colors">
-                  <div class="flex justify-between items-start mb-2">
-                    <h2 class="text-lg font-bold text-herb-green-800"><%= recipe.title %></h2>
-                    <% if recipe.drinking_log %>
-                      <div class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-bold">
-                        ★ <%= recipe.drinking_log.rating %>
-                      </div>
-                    <% else %>
-                      <span class="text-[10px] bg-gray-100 text-gray-400 px-2 py-1 rounded-full">感想未入力</span>
-                    <% end %>
-                  </div>
-
-                  <p class="text-gray-600 text-xs mb-3 line-clamp-2"><%= recipe.memo %></p>
-
-                  <div class="flex justify-between items-center text-[10px] text-gray-400">
-                    <span><%= recipe.user.name %></span>
-                    <span><%= l recipe.created_at, format: :short %></span>
-                  </div>
+      <% if @recipes.any? %>
+        <div class="w-full space-y-4 px-4">
+          <% @recipes.each do |recipe| %>
+            <%= link_to recipe_path(recipe), class: "block" do %>
+              <div class="bg-herb-green-50/50 rounded-2xl p-5 border border-herb-green-100 shadow-sm hover:opacity-80 transition">
+                <div class="flex justify-between items-start mb-2">
+                  <h2 class="text-base font-medium text-herb-green-700"><%= recipe.title %></h2>
+                  <% if recipe.drinking_log %>
+                    <div class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-bold flex-shrink-0 ml-2">
+                      ★ <%= recipe.drinking_log.rating %>
+                    </div>
+                  <% else %>
+                    <span class="text-[10px] bg-herb-green-100 text-herb-green-700/50 px-2 py-1 rounded-full flex-shrink-0 ml-2">感想未入力</span>
+                  <% end %>
                 </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% else %>
-          <p class="text-herb-green-300 text-sm text-center">研究データがまだありません<br>最初の一杯を記録しましょう</p>
-        <% end %>
-    </div>
 
-    <div class="pt-2" w-full>
-        <%= link_to "ブレンド研究記録を作成する", new_recipe_path, class: "w-full py-4 bg-herb-green-600 text-white text-l font-medium rounded-xl hover:bg-herb-green-700 transition-colors shadow-sm active:transform active:scale-[0.99] flex items-center justify-center" %>
+                <p class="text-herb-green-700/60 text-xs mb-3 line-clamp-2"><%= recipe.memo %></p>
+
+                <div class="flex justify-between items-center text-[10px] text-herb-green-700/40">
+                  <span><%= recipe.user.name %></span>
+                  <span><%= l recipe.created_at, format: :short %></span>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="text-herb-green-300 text-sm text-center">研究データがまだありません<br>最初の一杯を記録しましょう</p>
+      <% end %>
+
+    <div class="pt-2 w-full">
+      <%= link_to "ブレンド研究記録を作成する", new_recipe_path, class: "w-full py-4 bg-herb-green-600/80 text-white text-lg font-medium rounded-xl hover:bg-herb-green-700/80 transition-colors shadow-sm active:scale-[0.99] flex items-center justify-center" %>
     </div>
+  </div>
+
 </div>
-<%= render 'shared/footer' %>
