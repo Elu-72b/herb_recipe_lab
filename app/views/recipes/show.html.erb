@@ -19,22 +19,21 @@
         <% end %>
       </div>
 
-      <%# ハーブ配合 %>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <div>
+    </div>
+
+    <%# ハーブ配合 & ブレンドの特徴 を横並び %>
+    <% herbs_in_recipe = @recipe.recipe_herbs.map(&:herb).compact %>
+    <% all_flavor_tags     = herbs_in_recipe.flat_map(&:flavor_tags).uniq %>
+    <% all_functional_tags = herbs_in_recipe.flat_map(&:functional_tags).uniq %>
+    <% all_caution_tags    = herbs_in_recipe.flat_map(&:caution_tags).uniq %>
+    <% has_tags = all_flavor_tags.any? || all_functional_tags.any? || all_caution_tags.any? %>
+    <% if has_tags %>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-herb-green-100 p-6 md:p-8">
           <%= render 'recipes/recipe_summary', recipe: @recipe %>
         </div>
-      </div>
-
-      <%# 風味・効能・禁忌タグカード %>
-      <% herbs_in_recipe = @recipe.recipe_herbs.map(&:herb).compact %>
-      <% all_flavor_tags     = herbs_in_recipe.flat_map(&:flavor_tags).uniq %>
-      <% all_functional_tags = herbs_in_recipe.flat_map(&:functional_tags).uniq %>
-      <% all_caution_tags    = herbs_in_recipe.flat_map(&:caution_tags).uniq %>
-      <% if all_flavor_tags.any? || all_functional_tags.any? || all_caution_tags.any? %>
         <div class="bg-white rounded-2xl shadow-sm border border-herb-green-100 p-6 md:p-8">
           <h2 class="text-sm font-bold text-herb-green-800 mb-4">このブレンドの特徴</h2>
-
           <% if all_flavor_tags.any? %>
             <div class="mb-3">
               <p class="text-xs text-herb-green-700/50 mb-1">風味</p>
@@ -45,7 +44,6 @@
               </div>
             </div>
           <% end %>
-
           <% if all_functional_tags.any? %>
             <div class="mb-3">
               <p class="text-xs text-herb-green-700/50 mb-1">効能</p>
@@ -56,7 +54,6 @@
               </div>
             </div>
           <% end %>
-
           <% if all_caution_tags.any? %>
             <div class="mb-3">
               <p class="text-xs text-herb-green-700/50 mb-1">禁忌</p>
@@ -70,8 +67,12 @@
             </div>
           <% end %>
         </div>
-      <% end %>
       </div>
+    <% else %>
+      <div class="bg-white rounded-2xl shadow-sm border border-herb-green-100 p-6 md:p-8">
+        <%= render 'recipes/recipe_summary', recipe: @recipe %>
+      </div>
+    <% end %>
 
     <%# 感想カード: DrinkingLog 情報 %>
     <div class="bg-white rounded-2xl shadow-sm border border-herb-green-100 p-6 md:p-8">
