@@ -54,9 +54,9 @@
 
               <%# 禁忌タグ %>
               <% if herb.caution_tags.any? %>
-                <div class="flex flex-wrap gap-1">
+                <div class="flex flex-wrap gap-1 mt-1">
                   <% herb.caution_tags.each do |tag| %>
-                    <span class="flex flex-wrap gap-1 mt-1 bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
+                    <span class="flex flex-wrap gap-1 bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full">
                       ⚠ <%= tag.name %>
                     </span>
                   <% end %>
