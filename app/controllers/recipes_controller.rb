@@ -60,7 +60,7 @@ class RecipesController < ApplicationController
       :amount,
       :memo,
       :is_public,
-      recipe_herbs_attributes: [:id, :herb_id, :quantity, :unit, :_destroy]
+      recipe_herbs_attributes: [:id, :herb_id, :quantity, :unit, :_destroy, :custom_herb_name]
     )
   end
 end
