@@ -72,7 +72,7 @@
         <div class="flex items-center gap-3">
           <h2 class="text-xl font-bold text-herb-green-800">研究結果の感想</h2>
           <% if @recipe.drinking_log %>
-            <div class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-bold">
+            <div class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-md font-bold">
               ★ <%= @recipe.drinking_log.rating %> / 5
             </div>
           <% end %>
@@ -91,12 +91,12 @@
               <% value = @recipe.drinking_log.send(column).to_i %>
               <div class="flex flex-col items-center p-2 border-herb-green-100 rounded-lg border border-herb-green-100">
                 <div class="flex justify-between w-full px-1 mb-1">
-                  <span class="text-[10px] text-gray-500"><%= ja_name %></span>
-                  <span class="text-[10px] font-bold text-herb-green-600"><%= value %></span>
+                  <span class="text-[12px] text-gray-500"><%= ja_name %></span>
+                  <span class="text-[12px] font-bold text-herb-green-600"><%= value %></span>
                 </div>
                 <div class="flex gap-0.5">
                   <% 5.times do |i| %>
-                    <div class="w-2 h-3 rounded-sm <%= i < value ? 'bg-herb-green-600' : 'bg-gray-200' %>"></div>
+                    <div class="w-4 h-4 rounded-sm <%= i < value ? 'bg-herb-green-600' : 'bg-gray-200' %>"></div>
                   <% end %>
                 </div>
               </div>
