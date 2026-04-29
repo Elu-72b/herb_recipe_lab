@@ -105,6 +105,7 @@
 
           <%# 感想テキスト %>
           <%if @recipe.drinking_log.impression.present? %>
+            <h2 class="text-sm font-bold text-herb-green-700 mb-1 border-herb-green-100 pb-2">感想</h2>
             <div class="bg-herb-green-50/30 rounded-xl p-4 border border-herb-green-100">
               <p class="text-sm text-herb-green-900 whitespace-pre-wrap"><%= @recipe.drinking_log.impression %></p>
             </div>

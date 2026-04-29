@@ -12,7 +12,7 @@
         <% else %>
           <span class="text-herb-green-800 font-medium"><%= rh.custom_herb_name %></span>
         <% end %>
-        <span class="text-herb-green-600"><%= rh.quantity %> <%= unit_labels[rh.unit] %></span>
+        <span class="text-gray-500"><%= rh.quantity %> <%= unit_labels[rh.unit] %></span>
       </li>
     <% end %>
   </ul>
@@ -22,9 +22,11 @@
   </div>
 
 <% if @recipe.memo.present? %>
-  <div class="pt-1">
-    <p class="text-xs text-herb-green-600 font-medium mb-0.5">研究メモ</p>
-    <p class="text-xs text-gray-500 leading-relaxed"><%= @recipe.memo %></p>
+  <div class="pt-1 border-t border-herb-green-100">
+    <p class="text-xs text-gray-500 font-medium mb-0.5">研究メモ</p>
+      <div class="bg-herb-green-50/30 rounded-xl p-4 border border-herb-green-100">
+        <p class="text-xs text-gray-500 leading-relaxed "><%= @recipe.memo %></p>
+      </div>
   </div>
 <% end %>
 </div>
