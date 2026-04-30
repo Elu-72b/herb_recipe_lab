@@ -16,8 +16,11 @@
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-2 min-w-0">
                   <h2 class="text-base font-medium text-herb-green-700 truncate"><%= recipe.title %></h2>
+                  <%# 本リリースで有効化: 非公開バッジ %>
+                  <% if false %>
                   <% unless recipe.is_public? %>
                     <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full flex-shrink-0">非公開</span>
+                  <% end %>
                   <% end %>
                 </div>
                 <% if recipe.drinking_log %>

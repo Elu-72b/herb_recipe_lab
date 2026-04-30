@@ -72,7 +72,8 @@
               class: "w-full rounded-xl px-4 py-3 text-sm resize-none" %>
       </div>
 
-      <%# 公開設定 %>
+      <%# 本リリースで有効化: 公開設定 %>
+      <% if false %>
       <div class="flex items-center gap-3 bg-herb-green-50 rounded-xl px-4 py-3">
         <%= hidden_field_tag "recipe[is_public]", "0" %>
         <%= check_box_tag "recipe[is_public]", "1", @recipe.is_public?,
@@ -83,6 +84,7 @@
           <p class="text-xs text-gray-400">オンにすると他のユーザーに表示されます</p>
         </div>
       </div>
+      <% end %>
 
       <%# 保存ボタン %>
       <div class="pt-2 space-y-3">
