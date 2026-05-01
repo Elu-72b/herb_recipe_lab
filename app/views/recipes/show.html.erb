@@ -124,7 +124,7 @@
 
     <%# 戻るリンク %>
     <div class="text-center">
-      <%= link_to "一覧に戻る", home_path, class: "btn-list-back" %>
+      <%= link_to "一覧に戻る", user_signed_in? ? home_path : recipes_path, class: "btn-list-back" %>
     </div>
   </div>
 
