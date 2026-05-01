@@ -10,8 +10,8 @@ class DrinkingLogsController < ApplicationController
   def create
     @drinking_log = @recipe.build_drinking_log(drinking_log_params)
     if @drinking_log.save
-      @recipe.update(is_public: params.dig(:recipe, :is_public) == "1")
-      redirect_to home_path, notice: "研究記録を完了しました！"
+      # 本リリースで有効化: @recipe.update(is_public: params.dig(:recipe, :is_public) == "1")
+      redirect_to home_path, notice: "記録を完了しました！"
     else
       @flavor_tags = FlavorTag.all
       render :new, status: :unprocessable_entity

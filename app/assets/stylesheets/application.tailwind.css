@@ -6,6 +6,10 @@
     /* 図鑑背景 */
     --color-herb-green-100: #d4e2ca;
     /* 確認画面背景 */
+    --color-herb-green-300: #b8d0ab;
+    /* 入力枠ボーダー・ボタン枠 */
+    --color-herb-green-400: #a7c99a;
+    /* 入力フォーカス・追加ボタン */
     --color-herb-green-600: #89bc7b;
     /* 風味タグ・確定ボタン */
     --color-herb-green-700: #3a5b52;
@@ -38,7 +42,7 @@
 @layer components {
   /* 共通のカードデザイン */
   .herb-card {
-    @apply bg-herb-green-100/30 rounded-2xl p-5 border border-herb-green-100
+    @apply bg-herb-green-100/30 rounded-2xl p-3 border border-herb-green-100
            flex items-start space-x-4 shadow-sm;
   }
 
@@ -54,31 +58,65 @@
 
   /* メインのアクションボタン（フローティングボタンなど） */
   .btn-primary-lg {
-    @apply flex items-center bg-herb-green-600 text-white px-8 py-3
+    @apply flex items-center justify-center bg-herb-green-600 text-white px-8 py-3
            rounded-xl shadow-lg hover:bg-herb-green-700/80 transition-all
            text-xl font-medium active:scale-[0.98];
   }
 
   .btn-white-lg {
-    @apply flex items-center bg-herb-white text-herb-green-600 border border-herb-green-600 px-8 py-3
+    @apply flex items-center justify-center bg-herb-white text-herb-green-600 border border-herb-green-600 px-8 py-3
            rounded-xl shadow-lg hover:bg-herb-green-100 transition-all
            text-xl font-medium active:scale-[0.98];
   }
 
-  /* ログイン画面などの入力フォームのラベル */
-  .form-label {
-    @apply block text-lg text-herb-green-700 mb-3 ml-1;
+  /* 一覧に戻るボタン */
+  .btn-list-back {
+    @apply inline-block border border-herb-green-600 text-herb-green-600 rounded-full px-5 py-2 text-sm hover:bg-herb-green-50 transition;
   }
 
   .herb-header-capsule {
     @apply max-w-md mx-auto bg-herb-green-100 px-6 py-4 rounded-full shadow-sm border border-herb-green-600/20 flex justify-between items-center relative;
   }
 
+  /* フォームラベル */
+  .form-label {
+    @apply block text-xs font-medium text-herb-green-700 mb-1;
+  }
+
+  /* 全幅テキスト・日付・数値入力 */
+  .form-input {
+    @apply w-full border border-herb-green-300 rounded-xl px-4 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-herb-green-400;
+  }
+
+  /* 全幅テキストエリア */
+  .form-textarea {
+    @apply w-full border border-herb-green-300 rounded-xl px-4 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-herb-green-400 resize-none;
+  }
+
+  /* ハーブ配合行: ハーブ選択・カスタム名入力（flex-1） */
+  .herb-row-select {
+    @apply flex-1 border border-herb-green-300 rounded-xl px-4 py-2 text-xs
+           focus:outline-none focus:ring-2 focus:ring-herb-green-400;
+  }
+
+  /* ハーブ配合行: 量入力（w-14） */
+  .herb-row-quantity {
+    @apply w-14 border border-herb-green-300 rounded-xl px-2 py-2 text-xs
+           focus:outline-none focus:ring-2 focus:ring-herb-green-400;
+  }
+
+  /* ハーブ配合行: 単位選択（w-18） */
+  .herb-row-unit {
+    @apply w-18 border border-herb-green-300 rounded-xl px-2 py-2 text-xs
+           focus:outline-none focus:ring-2 focus:ring-herb-green-400;
+  }
+
   /* タブのコンテナ */
   .herb-tab-group {
     @apply flex bg-white rounded-lg border border-herb-green-600 overflow-hidden;
   }
-
   /* アクティブなタブ */
   .tab-item-active {
     @apply flex-1 py-3 bg-herb-green-600 text-white font-medium text-center;
