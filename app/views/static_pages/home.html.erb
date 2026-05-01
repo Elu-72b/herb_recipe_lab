@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-gradient-to-br flex flex-col items-center justify-center p-3 space-y-6 w-full">
 
   <%# ブレンド研究一覧 %>
-  <div class="max-w-lm w-full bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-5">
+  <div class="max-w-lg w-full bg-white rounded-2xl shadow-sm border border-herb-green-100 p-4 md:p-5">
     <div class="flex justify-center">
       <div class="bg-herb-green-100 px-8 py-2 rounded-full shadow-sm border border-herb-green-600/20">
         <h2 class="text-2xl text-herb-green-700 font-medium tracking-wide">ブレンド研究一覧</h2>
@@ -54,8 +54,8 @@
       <p class="text-herb-green-300 text-sm text-center py-4">研究データがまだありません<br>最初の一杯を記録しましょう</p>
     <% end %>
 
-    <div class="pt-4 w-full px-4">
-      <%= link_to "ブレンド研究記録を作成する", new_recipe_path, class: "btn-primary-lg w-full justify-center" %>
+    <div class="pt-4 px-4">
+      <%= link_to "ブレンド研究記録を作成する", new_recipe_path, class: "btn-primary-lg" %>
     </div>
   </div>
 
