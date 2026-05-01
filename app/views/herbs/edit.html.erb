@@ -30,8 +30,7 @@
         <%= form.label :name, "ハーブ名", class: "form-label" %>
         <%= form.text_field :name,
               placeholder: "例：カモミール",
-              class: "w-full border border-herb-green-200 rounded-xl px-4 py-2 text-sm
-                      focus:outline-none focus:ring-2 focus:ring-herb-green-400" %>
+              class: "form-input" %>
       </div>
 
       <%# 説明 %>
@@ -39,8 +38,7 @@
         <%= form.label :description, "説明", class: "form-label" %>
         <%= form.text_area :description,
               rows: 3,
-              class: "w-full border border-herb-green-200 rounded-xl px-4 py-2 text-sm
-                      focus:outline-none focus:ring-2 focus:ring-herb-green-400 resize-none" %>
+              class: "form-textarea" %>
       </div>
 
       <%# 風味タグ（複数選択） %>
@@ -103,8 +101,7 @@
         <%= form.label :caution, "禁忌・注意事項", class: "form-label" %>
         <%= form.text_area :caution,
               rows: 2,
-              class: "w-full border border-herb-green-200 rounded-xl px-4 py-2 text-sm
-                      focus:outline-none focus:ring-2 focus:ring-herb-green-400 resize-none" %>
+              class: "form-textarea" %>
       </div>
 
       <%# 画像（Cloudinary連携時に有効化） %>
