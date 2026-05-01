@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def require_login_with_alert
+    unless user_signed_in?
+      flash[:alert] = "ログインまたは新規登録が必要です"
+      redirect_to new_user_session_path
+    end
+  end
+
   def configure_permitted_parameters
     # サインアップ時に name カラムの保存を許可する
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])

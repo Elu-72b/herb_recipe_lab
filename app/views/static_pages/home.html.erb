@@ -43,7 +43,8 @@
                 <% end %>
               </div>
 
-              <div class="flex justify-end items-center text-[10px] text-herb-green-700/40">
+              <div class="flex justify-between items-center text-[10px] text-herb-green-700/40">
+                <span>by <%= recipe.user.name %></span>
                 <span><%= l recipe.created_at, format: :short %></span>
               </div>
             </div>
