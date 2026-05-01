@@ -54,15 +54,20 @@
 
   /* メインのアクションボタン（フローティングボタンなど） */
   .btn-primary-lg {
-    @apply flex items-center bg-herb-green-600 text-white px-8 py-3
+    @apply flex items-center justify-center bg-herb-green-600 text-white px-8 py-3
            rounded-xl shadow-lg hover:bg-herb-green-700/80 transition-all
            text-xl font-medium active:scale-[0.98];
   }
 
   .btn-white-lg {
-    @apply flex items-center bg-herb-white text-herb-green-600 border border-herb-green-600 px-8 py-3
+    @apply flex items-center justify-center bg-herb-white text-herb-green-600 border border-herb-green-600 px-8 py-3
            rounded-xl shadow-lg hover:bg-herb-green-100 transition-all
            text-xl font-medium active:scale-[0.98];
+  }
+
+  /* 一覧に戻るボタン */
+  .btn-list-back {
+    @apply inline-block border border-herb-green-600 text-herb-green-600 rounded-full px-5 py-2 text-sm hover:bg-herb-green-50 transition;
   }
 
   /* ログイン画面などの入力フォームのラベル */
@@ -74,11 +79,15 @@
     @apply max-w-md mx-auto bg-herb-green-100 px-6 py-4 rounded-full shadow-sm border border-herb-green-600/20 flex justify-between items-center relative;
   }
 
+  /* 入力フォームの見出し */
+  .form-label {
+    @apply block text-xs font-medium text-herb-green-700 mb-1;
+  }
+
   /* タブのコンテナ */
   .herb-tab-group {
     @apply flex bg-white rounded-lg border border-herb-green-600 overflow-hidden;
   }
-
   /* アクティブなタブ */
   .tab-item-active {
     @apply flex-1 py-3 bg-herb-green-600 text-white font-medium text-center;
