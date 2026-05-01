@@ -67,10 +67,9 @@
 
       <%# 自由な感想 %>
       <div>
-        <%= f.label :impression, "感想（任意）", class: "block text-sm font-medium text-herb-green-700 mb-1" %>
+        <%= f.label :impression, "感想（任意）", class: "form-label" %>
         <%= f.text_area :impression, rows: 4, placeholder: "飲んでみた感想を自由に記入してください",
-              class: "w-full border border-herb-green-200 rounded-xl px-4 py-2 text-sm
-                      focus:outline-none focus:ring-2 focus:ring-herb-green-400 resize-none" %>
+              class: "form-textarea" %>
       </div>
 
       <%# 本リリースで有効化: 公開設定 %>
