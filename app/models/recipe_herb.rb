@@ -9,9 +9,9 @@ class RecipeHerb < ApplicationRecord
   before_validation :normalize_other_herb_id
 
   validates :quantity, presence: true,
-    numericality: { greater_than: 0, message: "配合量は0より大きい値を入力してください" }
-  validates :herb_id, presence: { message: "ハーブを選択してください" }, if: -> { custom_herb_name.blank? }
-  validates :custom_herb_name, presence: { message: "ハーブ名を入力してください" }, if: -> { herb_id.nil? }
+    numericality: { greater_than: 0, message: "は0より大きい値を入力してください" }
+  validates :herb_id, presence: { message: "を選択してください" }, if: -> { custom_herb_name.blank? }
+  validates :custom_herb_name, presence: { message: "を入力してください" }, if: -> { herb_id.nil? }
 
   private
 
