@@ -12,8 +12,8 @@ class Recipe < ApplicationRecord
     allow_destroy: true,
     reject_if: :all_blank  # herb_idも量も空の行は無視する
 
-  validates :title, presence: { message: "レシピ名を入力してください" }
-  validates :brewed_at, presence: { message: "作成日を入力してください" }
+  validates :title, presence: { message: "を入力してください" }
+  validates :brewed_at, presence: { message: "を入力してください" }
 
   scope :public_recipes, -> { where(is_public: true) }
   scope :recent, -> { order(created_at: :desc) }

@@ -3,9 +3,9 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "メールアドレスの確認が完了しました。"
+      send_instructions: "メールアドレス確認の手順をメールで送信しました。"
+      send_paranoid_instructions: "メールアドレスが登録済みの場合、確認手順をメールで送信しました。"
     failure:
       already_authenticated: "すでにログイン済みです。"
       inactive: "アカウントがまだ有効化されていません。"
@@ -55,11 +55,11 @@ en:
       unlocked: "アカウントのロックを解除しました。ログインしてください。"
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: "すでに確認済みです。ログインをお試しください。"
+      confirmation_period_expired: "%{period}以内に確認が必要です。再度お申し込みください。"
+      expired: "有効期限が切れています。再度お申し込みください。"
+      not_found: "見つかりません。"
+      not_locked: "ロックされていません。"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1件のエラーにより%{resource}を保存できませんでした。"
+        other: "%{count}件のエラーにより%{resource}を保存できませんでした。"
