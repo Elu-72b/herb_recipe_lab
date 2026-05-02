@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+
   devise_for :users
 
   # 未ログインなら static_pages#top（ログインフォーム付き）を表示し、
