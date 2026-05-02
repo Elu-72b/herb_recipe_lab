@@ -8,20 +8,21 @@
       </div>
     </div>
 
-    <% if @my_recipes.any? %>
+    <% if @recipes.any? %>
       <div class="w-full space-y-3 px-4">
-        <% @my_recipes.each do |recipe| %>
+        <% @recipes.each do |recipe| %>
           <%= link_to recipe_path(recipe), class: "block" do %>
             <div class="bg-herb-green-50/50 rounded-2xl p-5 border border-herb-green-100 shadow-sm hover:opacity-80 transition">
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-2 min-w-0">
                   <h2 class="text-base font-medium text-herb-green-700 truncate"><%= recipe.title %></h2>
+                  <% if recipe.user_id == current_user.id %>
+                    <span class="text-[10px] bg-herb-green-100 text-herb-green-600 px-2 py-0.5 rounded-full flex-shrink-0">自分</span>
+                  <% end %>
                   <%# 本リリースで有効化: 非公開バッジ %>
-                  <% if false %>
-                  <% unless recipe.is_public? %>
-                    <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full flex-shrink-0">非公開</span>
-                  <% end %>
-                  <% end %>
+                  <%# unless recipe.is_public? %>
+                  <%#   <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full flex-shrink-0">非公開</span> %>
+                  <%# end %>
                 </div>
                 <% if recipe.drinking_log %>
                   <div class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-bold flex-shrink-0 ml-2">
