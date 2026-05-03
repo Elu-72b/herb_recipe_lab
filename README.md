@@ -1,5 +1,7 @@
 # ハーブブレンド管理アプリ Herb Recipe Lab
 
+URL: https://herb-recipe-lab.onrender.com
+
 # **1. サービス概要**
 
 このサービスは、ハーブティーのブレンドレシピを記録・整理・共有できるアプリです。
