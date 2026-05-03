@@ -2,7 +2,7 @@
 
 URL: https://herb-recipe-lab.onrender.com
 
-# **1. サービス概要**
+サービス# **1. サービス概要**
 
 このサービスは、ハーブティーのブレンドレシピを記録・整理・共有できるアプリです。
 ハーブの配合、味のメモ、期待する効果などをまとめて管理できます。
@@ -289,7 +289,6 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 
 ### 機能以外の工夫
 
-- ハーブの基本情報を表示する辞典機能
 - ハーブティー以外のハーブの用途を記載したコラム投稿機能
 
 # 10. 技術スタック
@@ -301,6 +300,7 @@ URL：[https://www.adagio.com/](https://www.adagio.com/)
 - データベース：PostgreSQL
 - デプロイ先：Render
 - 開発環境：Docker
+- 画像保存先：Cloudinary
 - 認証：devise
 - 外部API連携：Gemini API
 - CSS／UIフレームワーク：Tailwind CSS
