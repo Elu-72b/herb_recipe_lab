@@ -5,7 +5,7 @@ class HerbsController < ApplicationController
   before_action :authorize_herb!, only: [:edit, :update, :destroy]
 
   def index
-    @herbs = Herb.all.includes(:flavor_tags, :functional_tags)
+    @herbs = Herb.order(:name).includes(:flavor_tags, :functional_tags)
   end
 
   def show

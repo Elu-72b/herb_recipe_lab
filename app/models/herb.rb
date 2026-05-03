@@ -15,7 +15,7 @@ class Herb < ApplicationRecord
 
   ACCEPTED_CONTENT_TYPES = %w[image/jpeg image/png image/gif image/webp].freeze
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :image,
     content_type: ACCEPTED_CONTENT_TYPES,
     size: { less_than_or_equal_to: 5.megabytes },
