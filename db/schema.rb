@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_02_131913) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_04_093257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_02_131913) do
   create_table "flavor_tags_recipes", id: false, force: :cascade do |t|
     t.bigint "flavor_tag_id", null: false
     t.bigint "recipe_id", null: false
+    t.index ["flavor_tag_id"], name: "index_flavor_tags_recipes_on_flavor_tag_id"
+    t.index ["recipe_id"], name: "index_flavor_tags_recipes_on_recipe_id"
   end
 
   create_table "functional_tags", force: :cascade do |t|
@@ -85,6 +87,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_02_131913) do
   create_table "functional_tags_recipes", id: false, force: :cascade do |t|
     t.bigint "functional_tag_id", null: false
     t.bigint "recipe_id", null: false
+    t.index ["functional_tag_id"], name: "index_functional_tags_recipes_on_functional_tag_id"
+    t.index ["recipe_id"], name: "index_functional_tags_recipes_on_recipe_id"
   end
 
   create_table "herb_caution_tags", force: :cascade do |t|
@@ -152,6 +156,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_02_131913) do
     t.integer "amount"
     t.text "memo"
     t.boolean "is_public", default: true, null: false
+    t.index ["is_public", "created_at"], name: "index_recipes_on_is_public_and_created_at"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
