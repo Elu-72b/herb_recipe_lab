@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @recipes = Recipe.includes(:user).where(is_public: true).order(created_at: :desc)
+    @recipes = Recipe.includes(:user, :drinking_log, recipe_herbs: :herb).where(is_public: true).order(created_at: :desc)
   end
 
   def new
