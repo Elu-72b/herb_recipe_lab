@@ -29,36 +29,3 @@
 
 en:
   hello: "Hello world"
-  errors:
-    format: "%{attribute}%{message}"
-  activerecord:
-    errors:
-      messages:
-        blank: "を入力してください"
-        taken: "は現在使用できません"
-        confirmation: "と%{attribute}が一致しません"
-    models:
-      user: "ユーザー"
-    attributes:
-      user:
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "パスワード（確認用）"
-        name: "ユーザー名"
-      recipe:
-        title: "レシピ名"
-        brewed_at: "作成日"
-      recipe/recipe_herbs:
-        quantity: "配合量"
-        herb: "ハーブ"
-        herb_id: "ハーブ"
-        custom_herb_name: "ハーブ名"
-      recipe_herb:
-        quantity: "配合量"
-        herb: "ハーブ"
-        herb_id: "ハーブ"
-        custom_herb_name: "ハーブ名"
-      herb:
-        name: "ハーブ名"
-      drinking_log:
-        rating: "総合評価"

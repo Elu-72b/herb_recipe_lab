@@ -9,3 +9,46 @@ ja:
       default: "%Y/%m/%d"
       short: "%m/%d"
       long: "%Y年%m月%d日"
+  errors:
+    format: "%{attribute}%{message}"
+  activerecord:
+    errors:
+      messages:
+        blank: "を入力してください"
+        taken: "は現在使用できません"
+        confirmation: "と%{attribute}が一致しません"
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
+        name: "ユーザー名"
+      recipe:
+        title: "レシピ名"
+        brewed_at: "作成日"
+      recipe/recipe_herbs:
+        quantity: "配合量"
+        herb: "ハーブ"
+        herb_id: "ハーブ"
+        custom_herb_name: "ハーブ名"
+      recipe_herb:
+        quantity: "配合量"
+        herb: "ハーブ"
+        herb_id: "ハーブ"
+        custom_herb_name: "ハーブ名"
+      herb:
+        name: "ハーブ名"
+        image: "画像"
+      drinking_log:
+        rating: "総合評価"
+        sweetness: "甘み"
+        acidity: "酸味"
+        bitterness: "苦み"
+        astringency: "渋み"
+        fruity: "フルーティさ"
+        spicy: "スパイシーさ"
+        freshness: "さわやかさ"
+        flowery: "花のような香り"
+        impression: "感想"

@@ -18,6 +18,17 @@
     </div>
       <%= render 'recipes/recipe_summary', recipe: @recipe %>
 
+    <% if @drinking_log.errors.any? %>
+      <div class="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+        <p class="text-red-600 text-sm font-medium mb-1">入力内容を確認してください</p>
+        <ul class="text-red-500 text-sm space-y-1">
+          <% @drinking_log.errors.full_messages.each do |msg| %>
+            <li>・<%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= form_with model: [@recipe, @drinking_log], class: "space-y-6" do |f| %>
 
       <%# 総合評価 %>
